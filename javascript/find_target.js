@@ -8,6 +8,21 @@ class Node {
 
 function findTarget(root, target) {
   // type your code here
+  if(root === null){
+    return null
+  }
+
+  if(root.value === target){
+    return root
+  }
+
+  if(target > root.value){
+    return findTarget(root.right, target)
+  }
+
+  if(target < root.value){
+    return findTarget(root.left, target)
+  }
 }
 
 if (require.main === module) {
@@ -20,6 +35,12 @@ if (require.main === module) {
 
   console.log("Expecting: null");
   console.log(findTarget(root, 5));
+
+  console.log("")
+
+  let newRoot = new Node(6, new Node(5, new Node(3), null), new Node(10, new Node(9), new Node(20)))
+  console.log("Expecting: Node with value 22")
+  console.log(findTarget(newRoot, 20))
 }
 
 module.exports = { findTarget, Node };
