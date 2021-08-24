@@ -39,8 +39,11 @@ if (require.main === module) {
   console.log("")
 
   let newRoot = new Node(6, new Node(5, new Node(3), null), new Node(10, new Node(9), new Node(20)))
-  console.log("Expecting: Node with value 22")
+  console.log("Expecting: Node with value 20")
   console.log(findTarget(newRoot, 20))
+
+  console.log("Expecting: Node with value 5")
+  console.log(findTarget(newRoot, 5))
 }
 
 module.exports = { findTarget, Node };
